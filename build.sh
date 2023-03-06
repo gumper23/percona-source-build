@@ -53,6 +53,6 @@ cd /psp/build || exit 1
 # https://smalldatum.blogspot.com/2023/02/adventures-in-compiling-mysql.html
 ##############################################################################
 if [[ ! -f /psp/build/runtime_output_directory/mysqld ]]; then
-    CMAKE_BUILD_PARALLEL_LEVEL="$(nproc)" cmake /psp/percona-server -DCMAKE_BUILD_TYPE=Release -DWITH_SSL=/psp/openssl -DWITH_ZLIB=bundled -DMYSQL_MAINTAINER_MODE=0 -DENABLED_LOCAL_INFILE=1 -DCMAKE_INSTALL_PREFIX=/usr -DWITH_BOOST=/psp/boost -DWITH_NUMA=ON -DWITH_ROUTER=OFF -DWITH_MYSQLX=OFF -DWITH_UNIT_TESTS=OFF -DWITH_AUTHENTICATION_LDAP=OFF
+    CMAKE_BUILD_PARALLEL_LEVEL="$(nproc)" cmake /psp/percona-server -DCMAKE_BUILD_TYPE=RelWithDebInfo -DWITH_SSL=/psp/openssl -DWITH_ZLIB=bundled -DMYSQL_MAINTAINER_MODE=0 -DENABLED_LOCAL_INFILE=1 -DCMAKE_INSTALL_PREFIX=/usr -DWITH_BOOST=/psp/boost -DWITH_NUMA=ON -DWITH_ROUTER=OFF -DWITH_MYSQLX=OFF -DWITH_UNIT_TESTS=OFF -DWITH_AUTHENTICATION_LDAP=OFF
     time make -j"$(nproc)"
 fi
